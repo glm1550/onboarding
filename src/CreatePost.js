@@ -15,6 +15,7 @@ const base = new Airtable({apiKey: airtableConfig.apiKey})
   .base(airtableConfig.baseKey);
 
 
+
 class NewPost extends React.Component {
     constructor(props) {
         super(props);
@@ -41,11 +42,17 @@ class NewPost extends React.Component {
                 }
             }
         
-        ],{typecast:true});
+        ],{typecast:true}, function(err, records) {
+            if (err) {
+              console.error(err);
+              return;
+            }
+        }
+        );
+    
+        // window.location.reload();
 
-        useEffect(handleSubmit,[]);
-
-        // event.preventDefault();
+        event.preventDefault();
 
     }
 

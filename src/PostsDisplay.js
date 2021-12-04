@@ -28,7 +28,7 @@ function PostsDisplay() {
             });
     };
 
-    useEffect(getPosts, []);
+    useEffect(getPosts);
 
 
 
